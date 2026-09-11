@@ -21,7 +21,9 @@ class Student {
 
     this.marks = marks;
 
-    if (marks >= 90)
+    if
+
+    (marks >= 90)
 
       grade = "A+";
 
@@ -29,15 +31,21 @@ class Student {
 
       grade = "A";
 
-    else if (marks >= 70)
+    else if
+
+    (marks >= 70)
 
       grade = "B";
 
-    else if (marks >= 60)
+    else if
+
+    (marks >= 60)
 
       grade = "C";
 
-    else if (marks >= 50)
+    else if
+
+    (marks >= 50)
 
       grade = "D";
 
@@ -61,23 +69,23 @@ public class StudentGradeTracker {
 
     do {
 
-      System.out.println("\n===== Student Grade Tracker =====");
+      System.out.println("===== Student Grade Tracker =====");
 
-      // ============== Main Manu ============//
+      // ============== Main Manu of Student Grade Tracker ============//
 
       System.out.println("1. Add Student");
 
-      System.out.println("2. View Students");
+      System.out.println("2. Search for Student");
 
-      System.out.println("3. Search Student");
+      System.out.println("3. View Students");
 
       System.out.println("4. Update Student Marks");
 
       System.out.println("5. Delete Student");
 
-      System.out.println("6. Show Average Marks");
+      System.out.println("6. Show Highest Marks");
 
-      System.out.println("7. Show Highest Marks");
+      System.out.println("7. Show Average Marks");
 
       System.out.println("8. Show Lowest Marks");
 
@@ -93,13 +101,13 @@ public class StudentGradeTracker {
 
         case 1:
 
-          System.out.print("Enter Student Name: ");
+          System.out.print("Enter Student Name : ");
 
           String name = sc.nextLine().trim();
 
           if (name.isEmpty()) {
 
-            System.out.println("Name cannot be empty.");
+            System.out.println("Name shouldn't be empty.");
 
             break;
 
@@ -109,7 +117,7 @@ public class StudentGradeTracker {
 
           if (marks == -1) {
 
-            System.out.println("Invalid marks. Must be a number between 0 and 100.");
+            System.out.println("Invalid marks. Enter numbers between 0 and 100.");
 
             break;
 
@@ -121,37 +129,9 @@ public class StudentGradeTracker {
 
           break;
 
-        // ================= View Students =================
-
-        case 2:
-
-          if (students.isEmpty()) {
-
-            System.out.println("No Student Records Found.");
-
-          } else {
-
-            System.out.println("\n------ Student Records ------");
-
-            for (Student s : students) {
-
-              System.out.println("---------------------------");
-
-              System.out.println("Name  : " + s.name);
-
-              System.out.println("Marks : " + s.marks);
-
-              System.out.println("Grade : " + s.grade);
-
-            }
-
-          }
-
-          break;
-
         // ================= Search for Student =================
 
-        case 3:
+        case 2:
 
           System.out.print("Enter Student Name: ");
 
@@ -163,7 +143,7 @@ public class StudentGradeTracker {
 
             if (s.name.equalsIgnoreCase(searchName)) {
 
-              System.out.println("\nStudent Found");
+              System.out.println("Search Student Found");
 
               System.out.println("--------------------------");
 
@@ -173,6 +153,7 @@ public class StudentGradeTracker {
 
               System.out.println("Grade : " + s.grade);
 
+              System.out.println("--------------------------");
               found = true;
 
               break;
@@ -189,9 +170,40 @@ public class StudentGradeTracker {
 
           break;
 
+        // ================= View Students =================
+
+        case 3:
+
+          if (students.isEmpty()) {
+
+            System.out.println("Student Not Found.");
+
+          } else {
+
+            System.out.println("------ Student Records ------");
+
+            for (Student s : students) {
+
+              System.out.println("=============================");
+
+              System.out.println("Name  : " + s.name);
+
+              System.out.println("Marks : " + s.marks);
+
+              System.out.println("Grade : " + s.grade);
+
+              System.out.println("=============================");
+            }
+
+          }
+
+          break;
+
         // ================= Update Student Marks =================
 
         case 4:
+
+          System.out.println("=============================================");
 
           System.out.print("Enter Student Name: ");
 
@@ -207,7 +219,7 @@ public class StudentGradeTracker {
 
               if (newMarks == -1) {
 
-                System.out.println("Invalid marks. Must be a number between 0 and 100.");
+                System.out.println("Invalid marks. Enter numbers between 0 and 100.");
 
                 updated = true;
 
@@ -217,9 +229,9 @@ public class StudentGradeTracker {
 
               s.updateMarks(newMarks);
 
-              System.out.println(
+              System.out.println("Update Student Marks: Successfully completed!");
 
-                  "Student Record Updated Successfully!");
+              System.out.println("=============================================");
 
               updated = true;
 
@@ -253,9 +265,11 @@ public class StudentGradeTracker {
 
               students.remove(i);
 
-              System.out.println(
+              System.out.println("---------------------------------------");
 
-                  "Student Deleted Successfully!");
+              System.out.println("Delete Student: Successfully completed!");
+
+              System.out.println("---------------------------------------");
 
               deleted = true;
 
@@ -267,49 +281,22 @@ public class StudentGradeTracker {
 
           if (!deleted) {
 
-            System.out.println("Student Not Found.");
+            System.out.println("----------------------------------");
 
-          }
+            System.out.println("Delete Student: Student Not Found.");
 
-          break;
-
-        // ================= Average Marks of Students =================
-
-        case 6:
-
-          if (students.isEmpty()) {
-
-            System.out.println("No Student Records Found.");
-
-          } else {
-
-            double total = 0;
-
-            for (Student s : students) {
-
-              total += s.marks;
-
-            }
-
-            double average = total / students.size();
-
-            System.out.printf(
-
-                "Average Marks: %.2f%n",
-
-                average);
-
+            System.out.println("----------------------------------");
           }
 
           break;
 
         // ================= Highest Marks of Students =================
 
-        case 7:
+        case 6:
 
           if (students.isEmpty()) {
 
-            System.out.println("No Student Records Found.");
+            System.out.println("Highest Marks: Student Record Not Found.");
 
           } else {
 
@@ -325,9 +312,9 @@ public class StudentGradeTracker {
 
             }
 
-            System.out.println("\nHighest Marks");
+            System.out.println("-------Highest Marks-------");
 
-            System.out.println("--------------------------");
+            System.out.println("===========================");
 
             System.out.println("Name  : " + highest.name);
 
@@ -335,6 +322,37 @@ public class StudentGradeTracker {
 
             System.out.println("Grade : " + highest.grade);
 
+            System.out.println("===========================");
+
+          }
+
+          break;
+
+        // ================= Average Marks of Students =================
+
+        case 7:
+
+          if (students.isEmpty()) {
+
+            System.out.println("Average Marks: No Student Records Found.");
+
+          } else {
+
+            double total = 0;
+
+            for (Student s : students) {
+
+              total += s.marks;
+
+            }
+
+            double average = total / students.size();
+
+            System.out.println("---------------------------------");
+
+            System.out.printf("Average Marks: %.2f%n", average);
+
+            System.out.println("---------------------------------");
           }
 
           break;
@@ -344,8 +362,11 @@ public class StudentGradeTracker {
         case 8:
 
           if (students.isEmpty()) {
+            System.out.println("-----------------------------------------");
 
-            System.out.println("No Student Records Found.");
+            System.out.println("Lowest Marks: No Student Records Found.");
+
+            System.out.println("-----------------------------------------");
 
           } else {
 
@@ -361,7 +382,7 @@ public class StudentGradeTracker {
 
             }
 
-            System.out.println("\nLowest Marks");
+            System.out.println("-------Lowest Marks------");
 
             System.out.println("--------------------------");
 
@@ -370,6 +391,8 @@ public class StudentGradeTracker {
             System.out.println("Marks : " + lowest.marks);
 
             System.out.println("Grade : " + lowest.grade);
+
+            System.out.println("--------------------------");
 
           }
 
@@ -381,7 +404,11 @@ public class StudentGradeTracker {
 
           if (students.isEmpty()) {
 
+            System.out.println("-------------------------");
+
             System.out.println("No Student Records Found.");
+
+            System.out.println("-------------------------");
 
           } else {
 
@@ -391,9 +418,7 @@ public class StudentGradeTracker {
 
             Student lowest = students.get(0);
 
-            System.out.println(
-
-                "\n========== SUMMARY REPORT of Students ==========");
+            System.out.println("========== SUMMARY REPORT of Students ==========");
 
             for (Student s : students) {
 
@@ -404,6 +429,8 @@ public class StudentGradeTracker {
               System.out.println("Marks : " + s.marks);
 
               System.out.println("Grade : " + s.grade);
+
+              System.out.println("--------------------------");
 
               total += s.marks;
 
@@ -433,21 +460,22 @@ public class StudentGradeTracker {
 
                 average);
 
-            System.out.println("\nHighest Marks");
-
+            System.out.println("-------Highest Marks------");
+            System.out.println("--------------------------");
             System.out.println("Name  : " + highest.name);
-
             System.out.println("Marks : " + highest.marks);
-
             System.out.println("Grade : " + highest.grade);
-
-            System.out.println("\nLowest Marks");
-
+            System.out.println("--------------------------");
+            System.out.println("-------Average Marks-------");
+            System.out.println("--------------------------");
+            System.out.printf("Average Marks : %.2f%n", average);
+            System.out.println("--------------------------");
+            System.out.println("-------Lowest Marks-------");
+            System.out.println("--------------------------");
             System.out.println("Name  : " + lowest.name);
-
             System.out.println("Marks : " + lowest.marks);
-
             System.out.println("Grade : " + lowest.grade);
+            System.out.println("--------------------------");
 
           }
 
@@ -455,7 +483,7 @@ public class StudentGradeTracker {
 
         case 10:
 
-          System.out.println("Thanks, vist again");
+          System.out.println("Thanks, for using ");
 
           break;
 
@@ -521,12 +549,11 @@ public class StudentGradeTracker {
 
       } catch (NumberFormatException e) {
 
-        System.out.print("Invalid input, please enter a numeric value for marks: ");
+        System.out.print("Invalid input, please enter valid Input: ");
 
       }
 
     }
 
   }
-
 }
