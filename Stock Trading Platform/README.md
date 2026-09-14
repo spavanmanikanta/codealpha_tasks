@@ -64,13 +64,13 @@ Upon launching the application, you will be greeted by the main dashboard:
 (Prices are simulated - each action dynamically updates the market)
 
 ==================== Dashboard ====================
-1. View Market
-2. Buy Stock
-3. Sell Stock
-4. View Portfolio
-5. Transaction History
-6. Leave the Market
-Select our choose:
+ 1. View Market
+ 2. Buy Stock
+ 3. Sell Stock
+ 4. View Portfolio
+ 5. Transaction History
+ 6. Leave the Market
+ Select our choose:
 ==================================================
 
 Option 1 (View Market): Displays the current ticker symbols, company names, real-time prices, and how much they have changed since the previous tick.
